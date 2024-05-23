@@ -1,29 +1,100 @@
-# Git Techbier
+# Personalized Git Techbier for NADJAIRIS
 
-## Generate User Context
+> File for participant NADJAIRIS
 
-Generate a user's context with:
+This file is the main test file on which you will perform your exercises. A
+secondary file 'content.md' is used for  exercises.
 
-```bash
-bash ./create-stage.sh <user>
+This file is the entry point for all your exercises. A secondary file
+`content.md` is the file which you will need to change to actually perform the
+exercises.
+
+## Amend
+
+Switch to branch `NadjaIris-main`. Oh no, there is a typo (or should I say "typoo") in
+the last commit! Amend the commit to correct the commit message.
+
+Oh no again, we wanted to have two exclamation marks (!!) on in the content.
+Change the line in the content file to:
+
+```
+Hello world!!
 ```
 
-Then you can switch to your personalized branch and start the exercises:
+Push all your changes to `NadjaIris-main` again.
 
-```bash
-git switch <user>-main
+> Don't push as an extra commit! We only amended here, so there should only be
+> the one commit with message
+> `"fix: correct typoo in content for participant NadjaIris"`.
+
+## Merge
+
+Merge branch `NadjaIris-merge-branch` into `NadjaIris-main`. Resolve any conflicts that might arise
+by keeping the changes from `NadjaIris-merge-branch`.
+
+Don't forget to push your changes.
+
+## Rebase
+
+Switch to branch `NadjaIris-rebase-branch` and rebase it **onto `NadjaIris-main`**. Resolve any
+conflicts that might arise by keeping the changes from `NadjaIris-rebase-branch`.
+
+Don't forget to push your changes.
+
+## Squash
+
+The branch `NadjaIris-rebase-branch` should be 2 commits ahead of `NadjaIris-main`. Squash the two
+commits into a single commit with message:
+
+```
+feat: beautify world and ask participant NadjaIris how (s)he is enjoying it
 ```
 
-Once your are done, run the following to clean up your environment:
+Don't forget to push your changes.
 
-```bash
-env CLEANUP_ONLY=true bash ./create-stage.sh <user>
+## Cherry Pick
+
+Damn, there is an amazing commit on branch `NadjaIris-cherry-pick-branch` with message:
+
+```
+feat: add content that should also be on NadjaIris-main
 ```
 
-## Reset Environment
+This should indeed also be on `NadjaIris-main`. Let's cherry-pick it onto main! Resolve
+any conflicts that might arise by keeping the changes from `NadjaIris-cherry-pick-branch`.
 
-Simply rerun the following in order to reset the environment:
+And ...
+...yup, don't forget to push your changes.
 
-```bash
-bash ./create-stage.sh <user>
+## Tag
+
+I think how that we merged `NadjaIris-merge-branch` into `NadjaIris-main` and added the amazing
+commit from `NadjaIris-cherry-pick-branch`, we could go live with version `1.0.0`!
+
+Let's create a tag `NadjaIris-v1.0.0` on the last commit on `NadjaIris-main` and push it to the
+remote.
+
+## Reset
+
+Now it's your time to show your Markdown skillz. Switch to branch `NadjaIris-rebase-branch`
+and modify `content.md` by adding whether you are a cat or a dog person, then
+commit it, but don't push!
+
+Ahhhhhh, turns out being a cat or dog person is sensitive information, let's
+hard reset back to the status of `NadjaIris-rebase-branch` that is on the remote.
+
+## Stash
+
+> You should be on branch `NadjaIris-rebase-branch`.
+
+Mhhh maybe we could add less sensitive information, like the meaning of life.
+Add a line to `content.md` that says:
+
 ```
+The answer to the meaning of life, the universe, and everything is ...
+```
+
+Ahhh you don't get time to find the answer to it, and a colleague asks you to
+review his code on branch `NadjaIris-life`. Stash your changes for later, and have a
+look at the `NadjaIris-life` branch. Once you have had a look, go back to
+`NadjaIris-rebase-branch` and finish your line, commit the changes, and push them.
